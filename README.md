@@ -1,4 +1,4 @@
-# 🖥️ EEZ-Studio LVGL Project for Waveshare ESP32-S3 7 Inch Board
+# 🖥️ EEZ-Studio LVGL Project for Waveshare ESP32-S3      7 Inch Board
 
 ## Badges
 
