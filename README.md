@@ -1,4 +1,4 @@
-# 🖥️ EEZ-Studio LVGL Project for Waveshare ESP32-S3      7 Inch Board
+# EEZ-Studio LVGL Project for Waveshare ESP32-S3      7 Inch Board
 
 ## Badges
 
@@ -24,21 +24,23 @@ This project provides a comprehensive example of integrating an EEZ-Studio LVGL 
 - Configure and run LVGL on the Waveshare ESP32-S3 7 Inch Board
 - Implement custom UI designs from EEZ-Studio's Easily on this Waveshare board
 - Use EEZ-Studio's output files in ESP-IDF
+It is based off the demo's provided by waveshare on their [wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
 
-## 🎯 Supported Specifications
+## 🎯 Supported Hardware
 
 | Category | Specification |
 |---------|---------------|
 | **Target** | Waveshare ESP32-S3 7 Inch |
-| **LCD Controller** | ST7701 |
+| **LCD Controller** | ST7262 |
 | **Touch Controller** | GT911 |
 
 ## 🛠 Prerequisites
 
-Before you begin, ensure you have:
-- [VS Code](https://code.visualstudio.com/) installed
-- [ESP-IDF Extension](https://github.com/espressif/vscode-esp-idf-extension) for VS Code
+Before you begin, ensure you have the following installed:
+- [VS Code](https://code.visualstudio.com/)
+- [ESP-IDF Extension](https://github.com/espressif/vscode-esp-idf-extension) can also be installed directly from VSCode extension manager
 - ESP-IDF V5.4 with tools and virtual environment setup either by the ESP-IDF or your own manual install
+- The [Waveshare Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7) has a great example on how to set up VSCode and get the ESP-IDF installed
 
 ## 🚀 Quick Start Guide
 
@@ -74,40 +76,44 @@ This is a quick fix, though slightly annoying.
 
 You will have to go through all of the files in `./components/ui/` and change `lvgl/lvgl.h` to `lvgl.h`
 
-## 📊 ui_import.py: A Tool for Importing UI Components
+## 📊 Alternative Method: ui_import.py
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient.
 
 **Key Features**
 Automated File Copying: Copies UI files from your source directory to the designated project folder (components/ui).
+
 Header Modification: Automatically replaces lvgl/lvgl.h with lvgl.h in all UI files.
+
 CMake Integration: Helps you manage the build process by checking for and optionally replacing CMakeLists.txt with a default template.
+
 Action Implementation: Copies extern functions from actions.h to actions.c and provides basic function stubs for easy implementation.
-Usage
-Running the Script
+
+**Usage**
 To run the script, execute the following command in your terminal:
 
-bash
-python ui_import.py [options]
+'python ui_import.py [options]'
 
 **Specifying Source Directory**
-Use the -d or --directory option to specify the path to your UI source directory.
+Use the '-d' or '--directory' option to specify the path to your UI source directory.
 
 Example:
 
-bash
-python ui_import.py -d /path/to/your/ui/components
+'python ui_import.py -d /path/to/your/ui/components'
+
 If not provided, the script will attempt to use the last specified directory from a configuration file.
 
 **Selecting Import Mode**
-Use the -m or --mode option to specify the specific actions you want to perform.
+
+Use the '-m' or '--mode' option to specify the specific actions you want to perform.
 
 Available modes:
 
-copy-ui: Only copy UI files.
-fix-headers: Only replace headers.
-fix-cmake: Only check and optionally replace CMakeLists.txt.
-fix-actions: Only copy and create stubs for action functions.
-all (default): Perform all actions.
+'copy-ui': Only copy UI files.
+'fix-headers': Only replace headers.
+'fix-cmake': Only check and optionally replace CMakeLists.txt.
+'fix-actions': Only copy and create stubs for action functions.
+'all' (default): Perform all actions.
+
 **Viewing Help**
 Use the -h or --help option to display a list of available options and their descriptions.
 
