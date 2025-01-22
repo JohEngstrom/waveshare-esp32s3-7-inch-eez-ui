@@ -74,6 +74,55 @@ This is a quick fix, though slightly annoying.
 
 You will have to go through all of the files in `./components/ui/` and change `lvgl/lvgl.h` to `lvgl.h`
 
+## 📊 ui_import.py: A Tool for Importing UI Components
+This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient.
+
+**Key Features**
+Automated File Copying: Copies UI files from your source directory to the designated project folder (components/ui).
+Header Modification: Automatically replaces lvgl/lvgl.h with lvgl.h in all UI files.
+CMake Integration: Helps you manage the build process by checking for and optionally replacing CMakeLists.txt with a default template.
+Action Implementation: Copies extern functions from actions.h to actions.c and provides basic function stubs for easy implementation.
+Usage
+Running the Script
+To run the script, execute the following command in your terminal:
+
+bash
+python ui_import.py [options]
+
+**Specifying Source Directory**
+Use the -d or --directory option to specify the path to your UI source directory.
+
+Example:
+
+bash
+python ui_import.py -d /path/to/your/ui/components
+If not provided, the script will attempt to use the last specified directory from a configuration file.
+
+**Selecting Import Mode**
+Use the -m or --mode option to specify the specific actions you want to perform.
+
+Available modes:
+
+copy-ui: Only copy UI files.
+fix-headers: Only replace headers.
+fix-cmake: Only check and optionally replace CMakeLists.txt.
+fix-actions: Only copy and create stubs for action functions.
+all (default): Perform all actions.
+**Viewing Help**
+Use the -h or --help option to display a list of available options and their descriptions.
+
+Example:
+
+bash
+python ui_import.py -h
+Example Usage
+To import all UI components from /path/to/your/ui/components and perform all actions:
+
+bash
+python ui_import.py -d /path/to/your/ui/components
+**Note**
+The script assumes a specific project structure and file organization. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
+
 ## 🤔 Frequently Asked Questions (FAQ)
 
 ### LVGL Header Issue
@@ -121,3 +170,4 @@ Contributions are welcome!
 ---
 
 *Happy Coding! 👨‍💻👩‍💻*
+
