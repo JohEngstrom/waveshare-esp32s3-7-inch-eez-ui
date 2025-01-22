@@ -70,7 +70,7 @@ cd <project-directory>
 * There is an example inside of the `./components/ui/actions.c`
 
 ## 5. Edit UI Files (If EEZ doesn't generate the proper LVGL includes)
-EEZ-Studio has an option to change the library include. I have noticed that is still spits out lvgl/lvgl.h despite being set to lvgl.h
+EEZ-Studio has an option to change the library include. I have noticed that is still spits out `lvgl/lvgl.h` despite being set to `lvgl.h`
 
 This is a quick fix, though slightly annoying.
 
@@ -80,15 +80,17 @@ You will have to go through all of the files in `./components/ui/` and change `l
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient.
 
 **Key Features**
-Automated File Copying: Copies UI files from your source directory to the designated project folder `./components/ui` .
 
-Header Modification: Automatically replaces `lvgl/lvgl.h` with `lvgl.h` in all UI files.
+- Automated File Copying: Copies UI files from your source directory to the designated project folder `./components/ui` .
 
-CMake Integration: Helps you manage the build process by checking for and optionally replacing CMakeLists.txt with a default template.
+- Header Modification: Automatically replaces `lvgl/lvgl.h` with `lvgl.h` in all UI files.
 
-Action Implementation: Copies extern functions from actions.h to actions.c and provides basic function stubs for easy implementation.
+- CMake Integration: Helps you manage the build process by checking for and optionally replacing CMakeLists.txt with a default template.
+
+- Action Implementation: Copies extern functions from actions.h to actions.c and provides basic function stubs for easy implementation.
 
 **Usage**
+
 To run the script, execute the following command in your terminal:
 
 ```bash
@@ -96,6 +98,7 @@ python ui_import.py [options]
 ```
 
 **Specifying Source Directory**
+
 Use the `-d` or `--directory` option to specify the path to your UI source directory.
 
 Example:
@@ -110,11 +113,15 @@ Use the `-m` or `--mode` option to specify the specific actions you want to perf
 
 Available modes:
 
--`copy-ui`: Only copy UI files.
--`fix-headers`: Only replace headers.
--`fix-cmake`: Only check and optionally replace CMakeLists.txt.
--`fix-actions`: Only copy and create stubs for action functions.
--`all` (default): Perform all actions.
+copy-ui: Only copy UI files.
+
+fix-headers: Only replace headers.
+
+fix-cmake: Only check and optionally replace CMakeLists.txt.
+
+fix-actions: Only copy and create stubs for action functions.
+
+all (default): Perform all actions.
 
 **Viewing Help**
 Use the `-h` or `--help` option to display a list of available options and their descriptions.
@@ -141,7 +148,7 @@ The script assumes a specific project structure and file organization. You may n
 
 **Solution**: 
 - Manually replace `lvgl/lvgl.h` with `lvgl.h` in all files under `./components/ui/`
-- *Tip*: Consider creating a bash/python script for automated replacement
+- *New* Run `python import_eez_ui.py -m fix-headers` to allow the script to fix the headers.
 
 ### Undefined Action References
 **Problem**: Undefined references to `action_****`
@@ -150,6 +157,7 @@ The script assumes a specific project structure and file organization. You may n
 - Create an `actions.c` file
 - Use the template in `./templates/actions.c`
 - Define your custom actions (can be left blank initially)
+- *New* Run `python import_eez_ui.py -m fix-actions` to allow the script to to import functions from `./components/ui/actions.h`.
 
 ### CMake Component Resolution
 **Problem**: `CMake Error: Failed to resolve component 'ui'`
@@ -157,9 +165,7 @@ The script assumes a specific project structure and file organization. You may n
 **Solution**:
 - Restore `CMakeLists.txt` in `./components/ui/`
 - Use the template at `./templates/CMakeLists.txt`
-
-## 🌐 Additional Resources
-- [Waveshare ESP32-S3 7 Inch Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
+- *New* Run `python import_eez_ui.py -m fix-cmake` to allow the script to fix the cmake file in `./components/ui/`.
 
 ## 🌐 Additional Resources
 
