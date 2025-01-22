@@ -60,8 +60,16 @@ cd <project-directory>
 2. Open the project in VSCode with ESP-IDF extension
 3. Build and flash the project
 
+*New* Use the included command to copy from a provided `./ui/` folder into the `./components/ui/` directory. 
+```bash
+python import_eez_ui.py -d /path/to/eez/ui # To set the directory to your EEZ-Studios output folder. Typically: './eez-project/project_name/src/ui'
+python import_eez_ui.py -m copy-ui
+```
 
-### 4. Configure actions.h (Only if you defined native actions in EEZ-Studio)
+
+
+
+### 4. Configure actions.h (Only required if you defined native actions in EEZ-Studio)
 1. Open `./components/ui/actions.h`
 2. Copy all of your functions declared with extern into the file `./components/ui/actions.c`
 3. In `./components/ui/actions.c` remove the extern keyword from the beginning of all your functions.
@@ -69,12 +77,23 @@ cd <project-directory>
 5. You can leave these blank if you want, but this is where your custom action code goes
 * There is an example inside of the `./components/ui/actions.c`
 
+*New* Use the included command to perform this for you in the `./components/ui/` directory.
+```bash
+python import_eez_ui.py -m fix-actions
+```
+
 ## 5. Edit UI Files (If EEZ doesn't generate the proper LVGL includes)
-EEZ-Studio has an option to change the library include. I have noticed that is still spits out `lvgl/lvgl.h` despite being set to `lvgl.h`
+EEZ-Studio has an option to change the library include. I have noticed that sometimes it still spits out `lvgl/lvgl.h` despite being set to `lvgl.h`
 
 This is a quick fix, though slightly annoying.
 
 You will have to go through all of the files in `./components/ui/` and change `lvgl/lvgl.h` to `lvgl.h`
+
+*New* Use the included command to perform this for you on all files in the `./components/ui/` directory.
+```bash
+python import_eez_ui.py -m fix-headers
+```
+
 
 ## 📊 Alternative Method: ui_import.py
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient.
