@@ -93,7 +93,7 @@ To run the script, execute the following command in your terminal:
 
 ```bash
 python ui_import.py [options]
-'''
+```
 
 **Specifying Source Directory**
 Use the `-d` or `--directory` option to specify the path to your UI source directory.
@@ -101,7 +101,7 @@ Use the `-d` or `--directory` option to specify the path to your UI source direc
 Example:
 ```bash
 python ui_import.py -d /path/to/your/ui/components
-'''
+```
 If not provided, the script will attempt to use the last specified directory from a configuration file.
 
 **Selecting Import Mode**
@@ -122,14 +122,14 @@ Use the `-h` or `--help` option to display a list of available options and their
 Example:
 ```bash
 python ui_import.py -h
-'''
+```
 
 **Example Usage**
 To import all UI components from `/path/to/your/ui/components` and perform all actions:
 
 ```bash
 python ui_import.py -d /path/to/your/ui/components
-'''
+```
 
 **Note**
 The script assumes a specific project structure and file organization. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
