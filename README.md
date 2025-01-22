@@ -91,16 +91,17 @@ Action Implementation: Copies extern functions from actions.h to actions.c and p
 **Usage**
 To run the script, execute the following command in your terminal:
 
-
-`python ui_import.py [options]`
+```bash
+python ui_import.py [options]
+'''
 
 **Specifying Source Directory**
 Use the `-d` or `--directory` option to specify the path to your UI source directory.
 
 Example:
-
-`python ui_import.py -d /path/to/your/ui/components`
-
+```bash
+python ui_import.py -d /path/to/your/ui/components
+'''
 If not provided, the script will attempt to use the last specified directory from a configuration file.
 
 **Selecting Import Mode**
@@ -109,24 +110,26 @@ Use the `-m` or `--mode` option to specify the specific actions you want to perf
 
 Available modes:
 
-`copy-ui`: Only copy UI files.
-`fix-headers`: Only replace headers.
-`fix-cmake`: Only check and optionally replace CMakeLists.txt.
-`fix-actions`: Only copy and create stubs for action functions.
-`all` (default): Perform all actions.
+-`copy-ui`: Only copy UI files.
+-`fix-headers`: Only replace headers.
+-`fix-cmake`: Only check and optionally replace CMakeLists.txt.
+-`fix-actions`: Only copy and create stubs for action functions.
+-`all` (default): Perform all actions.
 
 **Viewing Help**
 Use the `-h` or `--help` option to display a list of available options and their descriptions.
 
 Example:
-
-`python ui_import.py -h`
+```bash
+python ui_import.py -h
+'''
 
 **Example Usage**
 To import all UI components from `/path/to/your/ui/components` and perform all actions:
 
-
-`python ui_import.py -d /path/to/your/ui/components`
+```bash
+python ui_import.py -d /path/to/your/ui/components
+'''
 
 **Note**
 The script assumes a specific project structure and file organization. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
