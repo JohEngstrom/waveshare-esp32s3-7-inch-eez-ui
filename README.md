@@ -2,7 +2,7 @@
 
 ## Badges
 
-[![Project Status](https://img.shields.io/badge/status-development-yellow)](https://github.com/yourusername/yourproject)
+[![Project Status](https://img.shields.io/badge/status-development-yellow)](https://github.com/cameronxt/waveshare-esp32s3-7-inch-ui-import)
 [![Platform](https://img.shields.io/badge/platform-ESP32--S3-blue)](https://www.espressif.com/en/products/socs/esp32-s3)
 [![LVGL](https://img.shields.io/badge/LVGL-v8.3-orange)](https://lvgl.io/)
 [![ESP-IDF](https://img.shields.io/badge/ESP--IDF-v5.4-green)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
@@ -24,9 +24,11 @@
 ## 📝 Project Overview
 
 This project provides a comprehensive example of integrating an EEZ-Studio LVGL project with the [Waveshare ESP32-S3 7 Inch Board](https://www.waveshare.com/esp32-s3-touch-lcd-7.htm). It demonstrates how to:
+
 - Configure and run LVGL on the Waveshare ESP32-S3 7 Inch Board
 - Implement custom UI designs from EEZ-Studio's Easily on this Waveshare board
 - Use EEZ-Studio's output files in ESP-IDF
+
 It is based off the demo's provided by waveshare on their [wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
 
 ## 🎯 Supported Hardware
@@ -50,7 +52,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Project
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/cameronxt/waveshare-esp32s3-7-inch-ui-import
 cd <project-directory>
 ```
 
