@@ -10,16 +10,16 @@
 
 ## 📋 Table of Contents
 
-* [📝 Project Overview](#project-overview)
-* [🎯 Supported Hardware](#supported-hardware)
-* [🛠 Prerequisites](#prerequisites)
-* [🚀 Quick Start Guide](#quick-start-guide)
-* [📊 Alternative Method: import_eez_ui.py](#alt-method)
-* [🛣️ Roadmap](#roadmap)
-* [❓ Frequently Asked Questions (FAQ)](#faq)
-* [🌐 Additional Resources](#additional-resources)
-* [📜️ Licensing](#licensing)
-* [🤝 Contributing](#contributing)
+
+- [🎯 Supported Hardware](#-supported-hardware)
+- [🛠 Prerequisites](#-prerequisites)
+- [🚀 Quick Start Guide](#-quick-start-guide)
+- [📊 Alternative Method: import_eez_ui.py](#alt-method)
+- [🛣️ Roadmap](#-roadmap)
+- [❓ Frequently Asked Questions](#faq)
+- [📚 Additional Resources](#-additional-resources)
+- [📜️ Licensing](#-Licensing)
+- [🤝 Contributing](#-contributing)
 
 ## 📝 Project Overview
 
@@ -101,8 +101,8 @@ python import_eez_ui.py -m fix-headers
 ```
 
 
-### 📊 Alternative Method: import_eez_ui.py
-{: #alt-method}
+### 📊 Alternative Method: import_eez_ui.py {#alt-method}
+
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient. I have never used python before this, but figured it was more portable than bash and you have to have python installed for the IDF anyways. There may be bugs as I am the only person who has tested these scripts. With that said if you do encounter a bug submit an issue or even better a pull request.
 
 **Key Features**
@@ -175,7 +175,7 @@ These are my up coming project goals:
 - __Easy Config Peripherals__ - I would like to set up a quick easy way to enable and init the peripherals as you need them with a quick define or simple config file
 - __More To Come__ - I am always thinking of ways to make this better and am open to contributions!
 
-## 🤔 Frequently Asked Questions (FAQ)
+## 🤔 Frequently Asked Questions (FAQ) {#faq}
 
 ### LVGL Header Issue
 **Problem**: `fatal error: lvgl/lvgl.h: No such file or directory`
