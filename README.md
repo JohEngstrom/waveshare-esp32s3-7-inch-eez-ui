@@ -40,7 +40,7 @@ Before you begin, ensure you have the following installed:
 - [VS Code](https://code.visualstudio.com/)
 - [ESP-IDF Extension](https://github.com/espressif/vscode-esp-idf-extension) can also be installed directly from VSCode extension manager
 - ESP-IDF V5.4 with tools and virtual environment setup either by the ESP-IDF or your own manual install
-- The [Waveshare Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7) has a great example on how to set up VSCode and get the ESP-IDF installed
+- The [Waveshare Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7) has an example on how to set up VSCode and get the ESP-IDF installed
 
 ## 🚀 Quick Start Guide
 
@@ -60,7 +60,7 @@ cd <project-directory>
 2. Open the project in VSCode with ESP-IDF extension
 3. Build and flash the project
 
-*New* Use the included command to copy from a provided `./ui/` folder into the `./components/ui/` directory. 
+__*New*__ Use the included command to copy from a provided `./ui/` folder into the `./components/ui/` directory. 
 ```bash
 python import_eez_ui.py -d /path/to/eez/ui # To set the directory to your EEZ-Studios output folder. Typically: './eez-project/project_name/src/ui'
 python import_eez_ui.py -m copy-ui
@@ -74,7 +74,7 @@ python import_eez_ui.py -m copy-ui
 5. You can leave these blank if you want, but this is where your custom action code goes
 * There is an example inside of the `./components/ui/actions.c`
 
-*New* Use the included command to perform this for you in the `./components/ui/` directory.
+__*New*__ Use the included command to perform this for you in the `./components/ui/` directory.
 ```bash
 python import_eez_ui.py -m fix-actions
 ```
@@ -86,7 +86,7 @@ This is a quick fix, though slightly annoying.
 
 You will have to go through all of the files in `./components/ui/` and change `lvgl/lvgl.h` to `lvgl.h`
 
-*New* Use the included command to perform this for you on all files in the `./components/ui/` directory.
+__*New*__ Use the included command to perform this for you on all files in the `./components/ui/` directory.
 ```bash
 python import_eez_ui.py -m fix-headers
 ```
@@ -130,13 +130,14 @@ Use the `-m` or `--mode` option to specify the specific actions you want to perf
 Available modes:
 
 
-- copy-ui: Only copy UI files.
-- fix-headers: Only replace headers.
-- fix-cmake: Only check and optionally replace CMakeLists.txt.
-- fix-actions: Only copy and create stubs for action functions.
-- all (default): Perform all actions.
+- `copy-ui`: Only copy UI files.
+- `fix-headers`: Only replace headers.
+- `fix-cmake`: Only check and optionally replace CMakeLists.txt.
+- `fix-actions`: Only copy and create stubs for action functions.
+- `all (default)`: Perform all actions.
 
 **Viewing Help**
+
 Use the `-h` or `--help` option to display a list of available options and their descriptions.
 
 Example:
@@ -145,14 +146,15 @@ python import_eez_ui.py -h
 ```
 
 **Example Usage**
+
 To import all UI components from `/path/to/your/ui/components` and perform all actions:
 
 ```bash
 python import_eez_ui.py -d /path/to/your/ui/components
 ```
 
-**Note**
-The script assumes a specific project structure and file organization. It is expected that you are pointing to an EEZ projects You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
+**Note:**
+The script assumes a specific project structure and file organization. It is expected that you are pointing to an EEZ projects ./src/ui folder. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
 
 ## 🤔 Frequently Asked Questions (FAQ)
 
@@ -188,11 +190,22 @@ The script assumes a specific project structure and file organization. It is exp
 - 🏗️ [EEZ-Studio](https://github.com/eez-open/studio)
 
 ## 🛣️ Roadmap
+
 These are my up coming project goals:
+
 - __Support More Waveshare Boards__ - This should be relatively easy as the underlying code uses the esp_lcd code.
 - __Support For Squareline Studios__ - This should also be relatively easy as the files and folder structure are basically identical from both tools
 - __Easy Config Peripherals__ - I would like to set up a quick easy way to enable and init the peripherals as you need them with a quick define or simple config file
 - __More To Come__ - I am always thinking of ways to make this better and am open to contributions!
+
+## 🛣️ Licensing
+
+The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from wavesource is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources i believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
+
+However, `import_eez_ui.py` was not based on previous projects. As such, I would like to release this script under MIT licenscing. I honestly dont know the proper way to set that up in the project so some pointers would be great!
+
+If you notice any licensce problems, open an issue. It will be addressed ASAP.
+
 
 ## 🤝 Contributing
 
