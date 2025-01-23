@@ -18,7 +18,7 @@
 - [🛣️ Roadmap](#-roadmap)
 - [❓ Frequently Asked Questions](#faq)
 - [📚 Additional Resources](#-additional-resources)
-- [📜️ Licensing](#-Licensing)
+- [📜️ Licensing](#-LicensingMe)
 - [🤝 Contributing](#-contributing)
 
 ## 📝 Project Overview
@@ -208,7 +208,7 @@ These are my up coming project goals:
 - 🛠 [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 - 🏗️ [EEZ-Studio](https://github.com/eez-open/studio)
 
-## 📜️ Licensing
+## 📜️ Licensing {#LicensingMe}
 
 The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from wavesource is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources i believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
 
