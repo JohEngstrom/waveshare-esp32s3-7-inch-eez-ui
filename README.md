@@ -14,9 +14,12 @@
 - [🎯 Supported Specifications](#-supported-specifications)
 - [🛠 Prerequisites](#-prerequisites)
 - [🚀 Quick Start Guide](#-quick-start-guide)
+- [📊 Alternative Method: import_eez_ui.py](#-alternative_Method:_import_eez_ui.py)
+- [🛣️ Roadmap](#-roadmap)
 - [❓ Frequently Asked Questions](#-frequently-asked-questions)
 - [📚 Additional Resources](#-additional-resources)
-- [📄 License](#-license)
+- [📜️  Licensing]($-Licensing)
+- [🤝 Contributing](#-contributing)
 
 ## 📝 Project Overview
 
@@ -62,7 +65,8 @@ cd <project-directory>
 
 __*New*__ Use the included command to copy from a provided `./ui/` folder into the `./components/ui/` directory. 
 ```bash
-python import_eez_ui.py -d /path/to/eez/ui # To set the directory to your EEZ-Studios output folder. Typically: './eez-project/project_name/src/ui'
+# To set the directory to your EEZ-Studios output folder. Typically: './eez-project/project_name/src/ui'
+python import_eez_ui.py -d /path/to/eez/ui 
 python import_eez_ui.py -m copy-ui
 ```
 
@@ -93,7 +97,7 @@ python import_eez_ui.py -m fix-headers
 
 
 ## 📊 Alternative Method: import_eez_ui.py
-This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient.
+This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient. I have never used python before this, but figured it was more portable than bash and you have to have python installed for the IDF anyways. There may be bugs as I am the only person who has tested these scripts. With that said if you do encounter a bug submit an issue or even better a pull request.
 
 **Key Features**
 
@@ -115,7 +119,7 @@ python import_eez_ui.py [options]
 
 **Specifying Source Directory**
 
-Use the `-d` or `--directory` option to specify the path to your UI source directory.
+Use the `-d` or `--directory` option to specify the default path to your UI source directory.
 
 Example:
 ```bash
@@ -156,6 +160,15 @@ python import_eez_ui.py -d /path/to/your/ui/components
 **Note:**
 The script assumes a specific project structure and file organization. It is expected that you are pointing to an EEZ projects ./src/ui folder. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
 
+## 🛣️ Roadmap
+
+These are my up coming project goals:
+
+- __Support More Waveshare Boards__ - This should be relatively easy as the underlying code uses the esp_lcd code.
+- __Support For Squareline Studios__ - This should also be relatively easy as the files and folder structure are basically identical from both tools
+- __Easy Config Peripherals__ - I would like to set up a quick easy way to enable and init the peripherals as you need them with a quick define or simple config file
+- __More To Come__ - I am always thinking of ways to make this better and am open to contributions!
+
 ## 🤔 Frequently Asked Questions (FAQ)
 
 ### LVGL Header Issue
@@ -189,16 +202,7 @@ The script assumes a specific project structure and file organization. It is exp
 - 🛠 [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 - 🏗️ [EEZ-Studio](https://github.com/eez-open/studio)
 
-## 🛣️ Roadmap
-
-These are my up coming project goals:
-
-- __Support More Waveshare Boards__ - This should be relatively easy as the underlying code uses the esp_lcd code.
-- __Support For Squareline Studios__ - This should also be relatively easy as the files and folder structure are basically identical from both tools
-- __Easy Config Peripherals__ - I would like to set up a quick easy way to enable and init the peripherals as you need them with a quick define or simple config file
-- __More To Come__ - I am always thinking of ways to make this better and am open to contributions!
-
-## 🛣️ Licensing
+## 📜️ Licensing
 
 The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from wavesource is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources i believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
 
