@@ -95,10 +95,21 @@ def fix_cmake():
     """
     cmake_file = "components/ui/CMakeLists.txt"
     if os.path.exists(cmake_file):
-        print(f"{cmake_file} found. Leaving in place.")
-    else:    
-        print(f"{cmake_file} missing. Do you want to replace it with the default? (y/n)")
+        print(f"{cmake_file} found.")
+        print(f"Do you want to replace {cmake_file} with the default? (y/N)")
         response = input().lower()
+        if not response:
+            response = 'n'
+        if response == "y":
+            shutil.copy2("./templates/CMakeLists.txt", cmake_file)
+            print(f"{cmake_file} replaced with the default.")
+        else:
+            print(f"{cmake_file} not replaced.")
+    else:    
+        print(f"{cmake_file} missing. Do you want to replace it with the default? (Y/n)")
+        response = input().lower()
+        if not response:
+            response = 'y'
         if response == "y":
             shutil.copy2("./templates/CMakeLists.txt", cmake_file)
             print(f"{cmake_file} replaced with the default.")
