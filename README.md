@@ -66,9 +66,6 @@ python import_eez_ui.py -d /path/to/eez/ui # To set the directory to your EEZ-St
 python import_eez_ui.py -m copy-ui
 ```
 
-
-
-
 ### 4. Configure actions.h (Only required if you defined native actions in EEZ-Studio)
 1. Open `./components/ui/actions.h`
 2. Copy all of your functions declared with extern into the file `./components/ui/actions.c`
@@ -95,25 +92,25 @@ python import_eez_ui.py -m fix-headers
 ```
 
 
-## 📊 Alternative Method: ui_import.py
+## 📊 Alternative Method: import_eez_ui.py
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient.
 
 **Key Features**
 
-- Automated File Copying: Copies UI files from your source directory to the designated project folder `./components/ui` .
+- **Automated File Copying:** Copies UI files from your source directory to the designated project folder `./components/ui` .
 
-- Header Modification: Automatically replaces `lvgl/lvgl.h` with `lvgl.h` in all UI files.
+- **Header Modification:** Automatically replaces `lvgl/lvgl.h` with `lvgl.h` in all UI files.
 
-- CMake Integration: Helps you manage the build process by checking for and optionally replacing CMakeLists.txt with a default template.
+- **CMake Integration:** Helps you manage the build process by checking for and optionally replacing CMakeLists.txt with a default template.
 
-- Action Implementation: Copies extern functions from actions.h to actions.c and provides basic function stubs for easy implementation.
+- **Action Implementation:** Copies extern functions from actions.h to actions.c and provides basic function stubs for easy implementation.
 
 **Usage**
 
 To run the script, execute the following command in your terminal:
 
 ```bash
-python ui_import.py [options]
+python import_eez_ui.py [options]
 ```
 
 **Specifying Source Directory**
@@ -122,7 +119,7 @@ Use the `-d` or `--directory` option to specify the path to your UI source direc
 
 Example:
 ```bash
-python ui_import.py -d /path/to/your/ui/components
+python import_eez_ui.py -d /path/to/your/ui/components
 ```
 If not provided, the script will attempt to use the last specified directory from a configuration file.
 
@@ -132,33 +129,30 @@ Use the `-m` or `--mode` option to specify the specific actions you want to perf
 
 Available modes:
 
-copy-ui: Only copy UI files.
 
-fix-headers: Only replace headers.
-
-fix-cmake: Only check and optionally replace CMakeLists.txt.
-
-fix-actions: Only copy and create stubs for action functions.
-
-all (default): Perform all actions.
+- copy-ui: Only copy UI files.
+- fix-headers: Only replace headers.
+- fix-cmake: Only check and optionally replace CMakeLists.txt.
+- fix-actions: Only copy and create stubs for action functions.
+- all (default): Perform all actions.
 
 **Viewing Help**
 Use the `-h` or `--help` option to display a list of available options and their descriptions.
 
 Example:
 ```bash
-python ui_import.py -h
+python import_eez_ui.py -h
 ```
 
 **Example Usage**
 To import all UI components from `/path/to/your/ui/components` and perform all actions:
 
 ```bash
-python ui_import.py -d /path/to/your/ui/components
+python import_eez_ui.py -d /path/to/your/ui/components
 ```
 
 **Note**
-The script assumes a specific project structure and file organization. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
+The script assumes a specific project structure and file organization. It is expected that you are pointing to an EEZ projects You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
 
 ## 🤔 Frequently Asked Questions (FAQ)
 
@@ -167,7 +161,7 @@ The script assumes a specific project structure and file organization. You may n
 
 **Solution**: 
 - Manually replace `lvgl/lvgl.h` with `lvgl.h` in all files under `./components/ui/`
-- *New* Run `python import_eez_ui.py -m fix-headers` to allow the script to fix the headers.
+- __*New*__ Run `python import_eez_ui.py -m fix-headers` to allow the script to fix the headers.
 
 ### Undefined Action References
 **Problem**: Undefined references to `action_****`
@@ -176,7 +170,7 @@ The script assumes a specific project structure and file organization. You may n
 - Create an `actions.c` file
 - Use the template in `./templates/actions.c`
 - Define your custom actions (can be left blank initially)
-- *New* Run `python import_eez_ui.py -m fix-actions` to allow the script to to import functions from `./components/ui/actions.h`.
+- __*New*__ Run `python import_eez_ui.py -m fix-actions` to allow the script to import functions from `./components/ui/actions.h`.
 
 ### CMake Component Resolution
 **Problem**: `CMake Error: Failed to resolve component 'ui'`
@@ -184,13 +178,14 @@ The script assumes a specific project structure and file organization. You may n
 **Solution**:
 - Restore `CMakeLists.txt` in `./components/ui/`
 - Use the template at `./templates/CMakeLists.txt`
-- *New* Run `python import_eez_ui.py -m fix-cmake` to allow the script to fix the cmake file in `./components/ui/`.
+- __*New*__ Run `python import_eez_ui.py -m fix-cmake` to allow the script to fix the cmake file in `./components/ui/`.
 
 ## 🌐 Additional Resources
 
 - 📖 [Waveshare ESP32-S3 7 Inch Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
 - 📚 [LVGL Documentation](https://docs.lvgl.io/)
 - 🛠 [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
+- 🏗️ [EEZ-Studio](https://github.com/eez-open/studio)
 
 ## 🤝 Contributing
 
