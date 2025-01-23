@@ -10,16 +10,16 @@
 
 ## 📋 Table of Contents
 
-- [📝 Project Overview](#-project-overview)
-- [🎯 Supported Hardware](#-supported-hardware)
-- [🛠 Prerequisites](#-prerequisites)
-- [🚀 Quick Start Guide](#-quick-start-guide)
-- [📊 Alternative Method: import_eez_ui.py](#-alt-method)
-- [🛣️ Roadmap](#-roadmap)
-- [❓ Frequently Asked Questions](#-faq)
-- [📚 Additional Resources](#-additional-resources)
-- [📜️  Licensing](#-Licensing)
-- [🤝 Contributing](#-contributing)
+* [📝 Project Overview](#project-overview)
+* [🎯 Supported Hardware](#supported-hardware)
+* [🛠 Prerequisites](#prerequisites)
+* [🚀 Quick Start Guide](#quick-start-guide)
+* [📊 Alternative Method: import_eez_ui.py](#alt-method)
+* [🛣️ Roadmap](#roadmap)
+* [❓ Frequently Asked Questions (FAQ)](#faq)
+* [🌐 Additional Resources](#additional-resources)
+* [📜️ Licensing](#licensing)
+* [🤝 Contributing](#contributing)
 
 ## 📝 Project Overview
 
