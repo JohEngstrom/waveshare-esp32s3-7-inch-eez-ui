@@ -53,7 +53,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/cameronxt/waveshare-esp32s3-7-inch-ui-import
-cd <project-directory>
+cd </path/to/idf/project>
 ```
 
 ### 2. Prepare EEZ-Studio Project
