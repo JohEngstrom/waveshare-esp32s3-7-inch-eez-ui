@@ -11,14 +11,14 @@
 ## 📋 Table of Contents
 
 - [📝 Project Overview](#-project-overview)
-- [🎯 Supported Specifications](#-supported-specifications)
+- [🎯 Supported Hardware](#-supported-hardware)
 - [🛠 Prerequisites](#-prerequisites)
 - [🚀 Quick Start Guide](#-quick-start-guide)
-- [📊 Alternative Method: import_eez_ui.py](#-alternative_Method:_import_eez_ui.py)
+- [📊 Alternative Method: import_eez_ui.py](#-alt-method)
 - [🛣️ Roadmap](#-roadmap)
-- [❓ Frequently Asked Questions](#-frequently-asked-questions)
+- [❓ Frequently Asked Questions](#-faq)
 - [📚 Additional Resources](#-additional-resources)
-- [📜️  Licensing]($-Licensing)
+- [📜️  Licensing](#-Licensing)
 - [🤝 Contributing](#-contributing)
 
 ## 📝 Project Overview
@@ -48,17 +48,20 @@ Before you begin, ensure you have the following installed:
 ## 🚀 Quick Start Guide
 
 ### 1. Clone the Project
+
 ```bash
 git clone <your-repo-url>
 cd <project-directory>
 ```
 
 ### 2. Prepare EEZ-Studio Project
+
 1. Open your own ui project in EEZ-Studio
 2. Export/build the project
 3. Locate the generated `ui` folder (typically similar to `/path/to/eez-projects/project_name/ui`)
 
 ### 3. Setup and Build
+
 1. Copy the `ui` folder onto `./components/ui`
 2. Open the project in VSCode with ESP-IDF extension
 3. Build and flash the project
@@ -71,6 +74,7 @@ python import_eez_ui.py -m copy-ui
 ```
 
 ### 4. Configure actions.h (Only required if you defined native actions in EEZ-Studio)
+
 1. Open `./components/ui/actions.h`
 2. Copy all of your functions declared with extern into the file `./components/ui/actions.c`
 3. In `./components/ui/actions.c` remove the extern keyword from the beginning of all your functions.
@@ -83,7 +87,8 @@ __*New*__ Use the included command to perform this for you in the `./components/
 python import_eez_ui.py -m fix-actions
 ```
 
-## 5. Edit UI Files (If EEZ doesn't generate the proper LVGL includes)
+### 5. Edit UI Files (If EEZ doesn't generate the proper LVGL includes)
+
 EEZ-Studio has an option to change the library include. I have noticed that sometimes it still spits out `lvgl/lvgl.h` despite being set to `lvgl.h`
 
 This is a quick fix, though slightly annoying.
@@ -96,7 +101,8 @@ python import_eez_ui.py -m fix-headers
 ```
 
 
-## 📊 Alternative Method: import_eez_ui.py
+### 📊 Alternative Method: import_eez_ui.py
+{: #alt-method}
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient. I have never used python before this, but figured it was more portable than bash and you have to have python installed for the IDF anyways. There may be bugs as I am the only person who has tested these scripts. With that said if you do encounter a bug submit an issue or even better a pull request.
 
 **Key Features**
