@@ -71,7 +71,7 @@ cd </path/to/idf/project>
 __*New*__ Use the included command to copy from a provided `./ui/` folder into the `./components/ui/` directory. 
 ```bash
 # To set the directory to your EEZ-Studios output folder. Typically: './eez-project/project_name/src/ui'
-python import_eez_ui.py -d /path/to/eez/ui 
+python import_eez_ui.py -d </path/to/eez/ui> 
 python import_eez_ui.py -m copy-ui
 ```
 
@@ -131,7 +131,7 @@ Use the `-d` or `--directory` option to specify the default path to your UI sour
 
 Example:
 ```bash
-python import_eez_ui.py -d /path/to/your/ui/components
+python import_eez_ui.py -d </path/to/your/ui/components>
 ```
 If not provided, the script will attempt to use the last specified directory from a configuration file.
 
@@ -159,10 +159,11 @@ python import_eez_ui.py -h
 
 **Example Usage**
 
-To import all UI components from `/path/to/your/ui/components` and perform all actions:
+To set source directory and import all UI components from `/path/to/your/ui/components` and perform all actions:
 
 ```bash
-python import_eez_ui.py -d /path/to/your/ui/components
+python import_eez_ui.py -d </path/to/your/ui/components>
+python import_eez_ui.py
 ```
 
 **Note:**
