@@ -18,9 +18,9 @@
 - [📚 Additional Resources](#-additional-resources)
 - [📄 License](#-license)
 
-## 📝 Project Overview"
+## 📝 Project Overview
 
-This project provides a comprehensive example of integrating an EEZ-Studio LVGL project with the Waveshare ESP32-S3 7 Inch Board. It demonstrates how to:
+This project provides a comprehensive example of integrating an EEZ-Studio LVGL project with the [Waveshare ESP32-S3 7 Inch Board](https://www.waveshare.com/esp32-s3-touch-lcd-7.htm). It demonstrates how to:
 - Configure and run LVGL on the Waveshare ESP32-S3 7 Inch Board
 - Implement custom UI designs from EEZ-Studio's Easily on this Waveshare board
 - Use EEZ-Studio's output files in ESP-IDF
@@ -186,6 +186,13 @@ The script assumes a specific project structure and file organization. It is exp
 - 📚 [LVGL Documentation](https://docs.lvgl.io/)
 - 🛠 [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 - 🏗️ [EEZ-Studio](https://github.com/eez-open/studio)
+
+## 🛣️ Roadmap
+These are my up coming project goals:
+- __Support More Waveshare Boards__ - This should be relatively easy as the underlying code uses the esp_lcd code.
+- __Support For Squareline Studios__ - This should also be relatively easy as the files and folder structure are basically identical from both tools
+- __Easy Config Peripherals__ - I would like to set up a quick easy way to enable and init the peripherals as you need them with a quick define or simple config file
+- __More To Come__ - I am always thinking of ways to make this better and am open to contributions!
 
 ## 🤝 Contributing
 
