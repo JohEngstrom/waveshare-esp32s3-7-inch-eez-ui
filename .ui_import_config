@@ -3,3 +3,4 @@ source_dir = example/eez-project/project_name/src/ui
 destination_dir = backup/ui
 project_dir = components/ui
 user_selected_modes = all
+
