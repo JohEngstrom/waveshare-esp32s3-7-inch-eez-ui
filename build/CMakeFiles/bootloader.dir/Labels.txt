@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/CMakeFiles/bootloader
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/CMakeFiles/bootloader.rule
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/CMakeFiles/bootloader-complete.rule
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/cameron/Documents/Projects/Programming/GUI/Waveshare/Projects/Template-waveshare_esp32s3_7_inch/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

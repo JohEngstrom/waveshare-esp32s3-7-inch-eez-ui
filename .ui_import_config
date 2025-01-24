@@ -1,3 +1,9 @@
-[Settings]
-source_dir = /home/cameron/Documents/Projects/Programming/GUI/eez-projects/name_here/src/ui
-
+{
+    "ui_dir": "",
+    "modes": [
+        "copy-ui",
+        "fix-headers",
+        "fix-cmake",
+        "fix-actions"
+    ]
+}
