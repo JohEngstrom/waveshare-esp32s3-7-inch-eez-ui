@@ -1,9 +1,0 @@
-{
-    "ui_dir": "",
-    "modes": [
-        "copy-ui",
-        "fix-headers",
-        "fix-cmake",
-        "fix-actions"
-    ]
-}
