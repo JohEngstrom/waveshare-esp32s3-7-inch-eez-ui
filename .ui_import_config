@@ -1,3 +1,6 @@
 [Settings]
-source_dir = /home/cameron/Documents/Projects/Programming/GUI/eez-projects/name_here/src/ui
+source_dir = example/eez-project/project_name/src/ui
+destination_dir = backup/ui
+project_dir = components/ui
+user_selected_modes = all
 
