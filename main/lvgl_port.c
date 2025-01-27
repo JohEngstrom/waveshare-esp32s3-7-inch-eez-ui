@@ -14,6 +14,7 @@
 #include "esp_log.h"
 #include "lvgl.h"
 #include "lvgl_port.h"
+#include "ui.h"
 
 static const char *TAG = "lv_port";                      // Tag for logging
 static SemaphoreHandle_t lvgl_mux;                       // LVGL mutex for synchronization
@@ -491,6 +492,7 @@ static void lvgl_port_task(void *arg)
     while (1) {
         if (lvgl_port_lock(-1)) { // Try to lock the LVGL mutex
             task_delay_ms = lv_timer_handler(); // Handle LVGL timer events
+            ui_tick(); // Handle UI events
             lvgl_port_unlock(); // Unlock the mutex
         }
         // Ensure the delay time is within limits
@@ -527,7 +529,7 @@ esp_err_t lvgl_port_init(esp_lcd_panel_handle_t lcd_handle, esp_lcd_touch_handle
         esp_lcd_touch_set_mirror_x(tp_handle, true); // Mirror X coordinates
 #endif
     }
-
+    ui_init(); // Initialize the UI
     lvgl_mux = xSemaphoreCreateRecursiveMutex(); // Create a recursive mutex for LVGL
     assert(lvgl_mux); // Ensure mutex creation was successful
 

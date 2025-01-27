@@ -5,6 +5,7 @@
  */
 
 #include "waveshare_rgb_lcd_port.h"
+#include "ui.h"
 
 // VSYNC event callback function
 IRAM_ATTR static bool rgb_lcd_on_vsync_event(esp_lcd_panel_handle_t panel, const esp_lcd_rgb_panel_event_data_t *edata, void *user_ctx)
@@ -266,4 +267,5 @@ void example_lvgl_demo_ui() // LVGL demo UI initialization function
     }
 
     lv_timer_create(add_data, 100, chart); // Create a timer to add new data every 100ms 
+    
 }
