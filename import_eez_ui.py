@@ -134,7 +134,7 @@ def config_mode(config):
         config['Settings']['destination_dir'] = backup_dir
 
     # Select user-selected modes
-    available_modes = ['copy-ui', 'fix-headers', 'fix-cmake', 'fix-actions']
+    available_modes = ['config', 'backup-ui', 'restore-ui', 'delete-backup', 'copy-ui', 'fix-headers', 'fix-cmake', 'fix-actions']
     print("\nAvailable modes:")
     for i, mode in enumerate(available_modes, 1):
         print(f"{i}. {mode}")
@@ -150,7 +150,7 @@ def config_mode(config):
             for i in selected_modes if i.isdigit() and 0 < int(i) <= len(available_modes)
         ]
     config['Settings']['user_selected_modes'] = ",".join(user_selected_modes)
-
+        
     # Save configuration
     save_config(config)
 
@@ -386,6 +386,7 @@ def main():
 
     # Handle default or mode-specific operations
     if args.mode is None and not args.backup_directory and not args.directory:
+        # If user_selected_mode is set to 'all' from config (default before config)
         if 'all' in user_selected_modes:
             backup_ui(source_dir, backup_dir)
             copy_ui(source_dir)
@@ -393,10 +394,21 @@ def main():
             fix_cmake()
             fix_actions()
             print("\nAll operations completed successfully.\nFull Clean and Build the project to verify.\n")
+            sys.exit(0)
+        # If user_selected_mode is to any other value, run each mode that is specified.
         else:
+            # Run each selected mode that is listed in user_selected_modes
             for mode in user_selected_modes:
-                if mode == 'backup-ui':
+                if mode == 'config':
+                    config_mode(config)
+                elif mode == 'backup-ui':
                     backup_ui(source_dir, backup_dir)
+                elif mode == 'restore-ui':
+                    restore_ui(source_dir, backup_dir)
+                elif mode == 'delete-backup':
+                    # Delete backup directory
+                    shutil.rmtree(backup_dir, ignore_errors=True)
+                    print(f"Deleted backup directory: {backup_dir}")
                 elif mode == 'copy-ui':
                     copy_ui(source_dir)
                 elif mode == 'fix-headers':
@@ -429,7 +441,7 @@ def main():
             fix_headers()
             fix_cmake()
             fix_actions()
-            print("\nAll operations completed successfully.\nBuild your project now.\n")
+            print("\n{args.mode} completed successfully.\nFull Clean and Build the project to verify.\n")
     sys.exit(0) # End script with success
             
 
