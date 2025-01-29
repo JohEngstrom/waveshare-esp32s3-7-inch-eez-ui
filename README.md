@@ -15,7 +15,7 @@
 - [🛠 Prerequisites](#-prerequisites)
 - [🚀 Quick Start Guide](#-quick-start-guide)
 - [📊 Alternative Method: import_eez_ui.py](#alt-method)
-- [🛣️ Roadmap](#-roadmap)
+- [🛣️ Roadmap](#roadmap)
 - [❓ Frequently Asked Questions](#faq)
 - [📚 Additional Resources](#-additional-resources)
 - [📜️ Licensing](#-licensing-me)
