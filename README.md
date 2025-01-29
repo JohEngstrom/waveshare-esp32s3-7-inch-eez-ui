@@ -8,7 +8,7 @@
 [![ESP-IDF](https://img.shields.io/badge/ESP--IDF-v5.4-green)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
 
-## 📋 Table of Contents
+### 📋 Table of Contents <a name="top"></a>
 
 
 - [🎯 Supported Hardware](#-supported-hardware)
@@ -21,7 +21,7 @@
 - [📜️ Licensing](#-licensing-me)
 - [🤝 Contributing](#-contributing)
 
-## 📝 Project Overview
+### 📝 Project Overview [Back to Top](#top)
 
 This project provides a comprehensive example of integrating an EEZ-Studio LVGL project with the [Waveshare ESP32-S3 7 Inch Board](https://www.waveshare.com/esp32-s3-touch-lcd-7.htm). It demonstrates how to:
 
@@ -31,7 +31,7 @@ This project provides a comprehensive example of integrating an EEZ-Studio LVGL 
 
 It is based off the demo's provided by waveshare on their [wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
 
-## 🎯 Supported Hardware
+## 🎯 Supported Hardware  **[Back to Top](#top)
 
 | Category | Specification |
 |---------|---------------|
@@ -47,22 +47,22 @@ Before you begin, ensure you have the following installed:
 - ESP-IDF V5.4 with tools and virtual environment setup either by the ESP-IDF or your own manual install
 - The [Waveshare Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7) has an example on how to set up VSCode and get the ESP-IDF installed
 
-## 🚀 Quick Start Guide
+### 🚀 Quick Start Guide   **[Back to Top](#top)
 
-### 1. Clone the Project
+## 1. Clone the Project
 
 ```bash
 git clone https://github.com/cameronxt/waveshare-esp32s3-7-inch-ui-import
 cd </path/to/idf/project>
 ```
 
-### 2. Prepare EEZ-Studio Project
+## 2. Prepare EEZ-Studio Project
 
 1. Open your own ui project in EEZ-Studio
 2. Export/build the project
 3. Locate the generated `ui` folder (typically similar to `/path/to/eez-projects/project_name/ui`)
 
-### 3. Setup and Build
+## 3. Setup and Build
 
 1. Copy the `ui` folder onto `./components/ui`
 2. Open the project in VSCode with ESP-IDF extension
@@ -75,7 +75,7 @@ python import_eez_ui.py -d </path/to/eez/ui>
 python import_eez_ui.py -m copy-ui
 ```
 
-### 4. Configure actions.h (Only required if you defined native actions in EEZ-Studio)
+## 4. Configure actions.h (Only required if you defined native actions in EEZ-Studio)
 
 1. Open `./components/ui/actions.h`
 2. Copy all of your functions declared with extern into the file `./components/ui/actions.c`
@@ -89,7 +89,7 @@ __*New*__ Use the included command to perform this for you in the `./components/
 python import_eez_ui.py -m fix-actions
 ```
 
-### 5. Edit UI Files (If EEZ doesn't generate the proper LVGL includes)
+## 5. Edit UI Files (If EEZ doesn't generate the proper LVGL includes)
 
 EEZ-Studio has an option to change the library include. I have noticed that sometimes it still spits out `lvgl/lvgl.h` despite being set to `lvgl.h`
 
@@ -103,7 +103,7 @@ python import_eez_ui.py -m fix-headers
 ```
 
 
-###📊 Alternative Method: import_eez_ui.py<a name="alt-method"></a>
+### 📊 Alternative Method: import_eez_ui.py<a name="alt-method"></a>  **[Back to Top](#top)
 
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient. I have never used python before this, but figured it was more portable than bash and you have to have python installed for the IDF anyways. There may be bugs as I am the only person who has tested these scripts. With that said if you do encounter a bug submit an issue or even better a pull request.
 
@@ -191,7 +191,7 @@ python import_eez_ui.py
 **Note:**
 The script assumes a specific project structure and file organization. It is expected that you are pointing to an EEZ projects ./src/ui folder. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
 
-###🛣️ Roadmap<a id="roadmap"></a>
+### 🛣️ Roadmap<a id="roadmap"></a>  **[Back to Top](#top)
 
 These are my up coming project goals:
 
@@ -200,7 +200,7 @@ These are my up coming project goals:
 - __Easy Config Peripherals__ - I would like to set up a quick easy way to enable and init the peripherals as you need them with a quick define or simple config file
 - __More To Come__ - I am always thinking of ways to make this better and am open to contributions!
 
-### 🤔 Frequently Asked Questions<a id="faq"></a>
+### 🤔 Frequently Asked Questions<a id="faq"></a>  **[Back to Top](#top)
 
 ### LVGL Header Issue
 **Problem**: `fatal error: lvgl/lvgl.h: No such file or directory` 
@@ -227,14 +227,14 @@ These are my up coming project goals:
 - __*New*__ Run `python import_eez_ui.py -m fix-cmake` to allow the script to fix the cmake file in `./components/ui/`.
 
 
-## 🌐 Additional Resources
+### 🌐 Additional Resources  **[Back to Top](#top)
 
 - 📖 [Waveshare ESP32-S3 7 Inch Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
 - 📚 [LVGL Documentation](https://docs.lvgl.io/)
 - 🛠 [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 - 🏗️ [EEZ-Studio](https://github.com/eez-open/studio)
 
-## 📜️ Licensing {#licensing-me}
+## 📜️ Licensing {#licensing-me}  **[Back to Top](#top)
 
 The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from Waveshare is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources I believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
 
@@ -243,7 +243,7 @@ However, `import_eez_ui.py` was not based on previous projects. As such, I would
 If you notice any licensce problems, open an issue. It will be addressed ASAP.
 
 
-## 🤝 Contributing
+## 🤝 Contributing  **[Back to Top](#top)
 
 Contributions are welcome!
 
