@@ -26,7 +26,7 @@
 This project provides a comprehensive example of integrating an EEZ-Studio LVGL project with the [Waveshare ESP32-S3 7 Inch Board](https://www.waveshare.com/esp32-s3-touch-lcd-7.htm). It demonstrates how to:
 
 - Configure and run LVGL on the Waveshare ESP32-S3 7 Inch Board
-- Implement custom UI designs from EEZ-Studio's Easily on this Waveshare board
+- Implement custom UI designs from EEZ-Studio easily on this Waveshare board
 - Use EEZ-Studio's output files in ESP-IDF
 
 It is based off the demo's provided by waveshare on their [wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
