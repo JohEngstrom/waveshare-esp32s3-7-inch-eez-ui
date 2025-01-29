@@ -31,7 +31,7 @@ This project provides a comprehensive example of integrating an EEZ-Studio LVGL 
 
 It is based off the demo's provided by waveshare on their [wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
 
-## 🎯 Supported Hardware<a name="supported-hardware"></a> <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
+### 🎯 Supported Hardware<a name="supported-hardware"></a> <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 | Category | Specification |
 |---------|---------------|
@@ -39,7 +39,7 @@ It is based off the demo's provided by waveshare on their [wiki](https://www.wav
 | **LCD Controller** | ST7262 |
 | **Touch Controller** | GT911 |
 
-## 🛠 Prerequisites<a name="prerequisites"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
+### 🛠 Prerequisites<a name="prerequisites"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 Before you begin, ensure you have the following installed:
 - [VS Code](https://code.visualstudio.com/)
@@ -234,7 +234,7 @@ These are my up coming project goals:
 - 🛠 [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 - 🏗️ [EEZ-Studio](https://github.com/eez-open/studio)
 
-## 📜️ Licensing <a name="licensing"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
+### 📜️ Licensing <a name="licensing"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from Waveshare is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources I believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
 
@@ -243,7 +243,7 @@ However, `import_eez_ui.py` was not based on previous projects. As such, I would
 If you notice any licensce problems, open an issue. It will be addressed ASAP.
 
 
-## 🤝 Contributing<a name="contributing"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
+### 🤝 Contributing<a name="contributing"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 Contributions are welcome!
 
