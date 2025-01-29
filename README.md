@@ -21,7 +21,7 @@
 - [📜️ Licensing](#licensing)
 - [🤝 Contributing](#contributing)
 
-### 📝 Project Overview <span style="position: absolute; right: 0; font-size: 60%;"><sup>[Back to Top](#top)</sup></span></sup></span>
+### 📝 Project Overview <span style="position: absolute; right: 0; font-size: 60%;"><sup>[Back to Top](#top)</sup></span>
 
 This project provides a comprehensive example of integrating an EEZ-Studio LVGL project with the [Waveshare ESP32-S3 7 Inch Board](https://www.waveshare.com/esp32-s3-touch-lcd-7.htm). It demonstrates how to:
 
