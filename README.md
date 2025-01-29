@@ -103,7 +103,7 @@ python import_eez_ui.py -m fix-headers
 ```
 
 
-###<a name="alt-method">📊 Alternative Method: import_eez_ui.py</a>
+###📊 Alternative Method: import_eez_ui.py<a name="alt-method"></a>
 
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient. I have never used python before this, but figured it was more portable than bash and you have to have python installed for the IDF anyways. There may be bugs as I am the only person who has tested these scripts. With that said if you do encounter a bug submit an issue or even better a pull request.
 
@@ -191,8 +191,7 @@ python import_eez_ui.py
 **Note:**
 The script assumes a specific project structure and file organization. It is expected that you are pointing to an EEZ projects ./src/ui folder. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
 
-### 🛣️ Roadmap
-###<a name="road-map">🛣️ Roadmap</a>
+###🛣️ Roadmap<a id="roadmap"></a>
 
 These are my up coming project goals:
 
@@ -201,7 +200,7 @@ These are my up coming project goals:
 - __Easy Config Peripherals__ - I would like to set up a quick easy way to enable and init the peripherals as you need them with a quick define or simple config file
 - __More To Come__ - I am always thinking of ways to make this better and am open to contributions!
 
-###<a id="faq"> 🤔 Frequently Asked Questions</a>
+### 🤔 Frequently Asked Questions<a id="faq"></a>
 
 ### LVGL Header Issue
 **Problem**: `fatal error: lvgl/lvgl.h: No such file or directory` 
