@@ -18,7 +18,7 @@
 - [🛣️ Roadmap](#roadmap)
 - [❓ Frequently Asked Questions](#faq)
 - [📚 Additional Resources](#additional-resources)
-- [📜️ Licensing](#licensing-me)
+- [📜️ Licensing](#licensing)
 - [🤝 Contributing](#contributing)
 
 ### 📝 Project Overview <small>[Back to Top](#top)</small></small>
@@ -39,7 +39,7 @@ It is based off the demo's provided by waveshare on their [wiki](https://www.wav
 | **LCD Controller** | ST7262 |
 | **Touch Controller** | GT911 |
 
-## 🛠 Prerequisites<a name="prerquisites"></a>  <small>[Back to Top](#top)</small>
+## 🛠 Prerequisites<a name="prerequisites"></a>  <small>[Back to Top](#top)</small>
 
 Before you begin, ensure you have the following installed:
 - [VS Code](https://code.visualstudio.com/)
