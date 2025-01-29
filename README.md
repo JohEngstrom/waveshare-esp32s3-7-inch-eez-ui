@@ -119,10 +119,18 @@ This script simplifies the process of importing and integrating UI components in
 
 **Usage**
 
-To run the script, execute the following command in your terminal:
+You must configure the script first, unless you are using the projects default folders. 
 
 ```bash
-python import_eez_ui.py [options]
+# Run config to customize variables
+python import_eez_ui.py -m config
+```
+
+Then to run the script, execute the following command in your terminal:
+
+```bash
+# Run script with no options to run based on config
+python import_eez_ui.py
 ```
 
 **Specifying Source Directory**
@@ -135,6 +143,16 @@ python import_eez_ui.py -d </path/to/your/ui/components>
 ```
 If not provided, the script will attempt to use the last specified directory from a configuration file.
 
+**Specifying Backup Directory**
+
+Use the `-b` or `--backup` option to specify the default path to where you want your backup directory.
+
+Example:
+```bash
+python import_eez_ui.py -b </path/to/your/ui/backup>
+```
+If not provided, the script will attempt to use the last specified directory from a configuration file.
+
 **Selecting Import Mode**
 
 Use the `-m` or `--mode` option to specify the specific actions you want to perform.
@@ -142,11 +160,15 @@ Use the `-m` or `--mode` option to specify the specific actions you want to perf
 Available modes:
 
 
+- `backup-ui`: Only copy UI files from ./components/ui to backup folder.
+- `restore-ui`: Only copy UI files from backup folder to ./components/ui.
+- `delete-backup`: Only delete backup files.
 - `copy-ui`: Only copy UI files.
 - `fix-headers`: Only replace headers.
-- `fix-cmake`: Only check and optionally replace CMakeLists.txt.
+- `fix-cmake`: Only check and replace CMakeLists.txt.
 - `fix-actions`: Only copy and create stubs for action functions.
-- `all (default)`: Perform all actions.
+- `fix-flow`: Only copy an eez-flow.h into project to allow compilation without using EEZ-Flow
+- `all (default)`: Perform all actions. (Does not run restore-ui or delete-backup)
 
 **Viewing Help**
 
@@ -204,6 +226,7 @@ These are my up coming project goals:
 - Use the template at `./templates/CMakeLists.txt`
 - __*New*__ Run `python import_eez_ui.py -m fix-cmake` to allow the script to fix the cmake file in `./components/ui/`.
 
+
 ## 🌐 Additional Resources
 
 - 📖 [Waveshare ESP32-S3 7 Inch Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
@@ -213,7 +236,7 @@ These are my up coming project goals:
 
 ## 📜️ Licensing {#licensing-me}
 
-The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from wavesource is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources i believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
+The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from Waveshare is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources I believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
 
 However, `import_eez_ui.py` was not based on previous projects. As such, I would like to release this script under MIT licenscing. I honestly dont know the proper way to set that up in the project so some pointers would be great!
 
