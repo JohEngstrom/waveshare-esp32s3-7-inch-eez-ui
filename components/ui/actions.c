@@ -22,3 +22,7 @@
 
 //     }
 
+
+void action_run_obd_scan(lv_event_t * e) {
+	// TODO: implement action_run_obd_scan
+}
