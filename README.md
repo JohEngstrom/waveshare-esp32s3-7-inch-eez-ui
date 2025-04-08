@@ -8,30 +8,30 @@
 [![ESP-IDF](https://img.shields.io/badge/ESP--IDF-v5.4-green)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
 
-## 📋 Table of Contents
+### 📋 Table of Contents <a name="top"></a>
 
 
-- [🎯 Supported Hardware](#-supported-hardware)
-- [🛠 Prerequisites](#-prerequisites)
-- [🚀 Quick Start Guide](#-quick-start-guide)
+- [🎯 Supported Hardware](#supported-hardware)
+- [🛠 Prerequisites](#prerequisites)
+- [🚀 Quick Start Guide](#quick-start-guide)
 - [📊 Alternative Method: import_eez_ui.py](#alt-method)
-- [🛣️ Roadmap](#-roadmap)
+- [🛣️ Roadmap](#roadmap)
 - [❓ Frequently Asked Questions](#faq)
-- [📚 Additional Resources](#-additional-resources)
-- [📜️ Licensing](#-licensing-me)
-- [🤝 Contributing](#-contributing)
+- [📚 Additional Resources](#additional-resources)
+- [📜️ Licensing](#licensing)
+- [🤝 Contributing](#contributing)
 
-## 📝 Project Overview
+### 📝 Project Overview <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 This project provides a comprehensive example of integrating an EEZ-Studio LVGL project with the [Waveshare ESP32-S3 7 Inch Board](https://www.waveshare.com/esp32-s3-touch-lcd-7.htm). It demonstrates how to:
 
 - Configure and run LVGL on the Waveshare ESP32-S3 7 Inch Board
-- Implement custom UI designs from EEZ-Studio's easily on this Waveshare board
+- Implement custom UI designs from EEZ-Studio easily on this Waveshare board
 - Use EEZ-Studio's output files in ESP-IDF
 
 It is based off the demo's provided by waveshare on their [wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
 
-## 🎯 Supported Hardware
+### 🎯 Supported Hardware<a name="supported-hardware"></a> <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 | Category | Specification |
 |---------|---------------|
@@ -39,7 +39,7 @@ It is based off the demo's provided by waveshare on their [wiki](https://www.wav
 | **LCD Controller** | ST7262 |
 | **Touch Controller** | GT911 |
 
-## 🛠 Prerequisites
+### 🛠 Prerequisites<a name="prerequisites"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 Before you begin, ensure you have the following installed:
 - [VS Code](https://code.visualstudio.com/)
@@ -47,22 +47,22 @@ Before you begin, ensure you have the following installed:
 - ESP-IDF V5.4 with tools and virtual environment setup either by the ESP-IDF or your own manual install
 - The [Waveshare Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7) has an example on how to set up VSCode and get the ESP-IDF installed
 
-## 🚀 Quick Start Guide
+### 🚀 Quick Start Guide<a name="quick-start-guide"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
-### 1. Clone the Project
+## 1. Clone the Project
 
 ```bash
-cd </path/to/idf/project>
 git clone https://github.com/cameronxt/waveshare-esp32s3-7-inch-ui-import
+cd </path/to/idf/project>
 ```
 
-### 2. Prepare EEZ-Studio Project
+## 2. Prepare EEZ-Studio Project
 
 1. Open your own ui project in EEZ-Studio
 2. Export/build the project
 3. Locate the generated `ui` folder (typically similar to `/path/to/eez-projects/project_name/ui`)
 
-### 3. Setup and Build
+## 3. Setup and Build
 
 1. Copy the `ui` folder onto `./components/ui`
 2. Open the project in VSCode with ESP-IDF extension
@@ -75,7 +75,7 @@ python import_eez_ui.py -d </path/to/eez/ui>
 python import_eez_ui.py -m copy-ui
 ```
 
-### 4. Configure actions.h (Only required if you defined native actions in EEZ-Studio)
+## 4. Configure actions.h (Only required if you defined native actions in EEZ-Studio)
 
 1. Open `./components/ui/actions.h`
 2. Copy all of your functions declared with extern into the file `./components/ui/actions.c`
@@ -89,7 +89,7 @@ __*New*__ Use the included command to perform this for you in the `./components/
 python import_eez_ui.py -m fix-actions
 ```
 
-### 5. Edit UI Files (If EEZ doesn't generate the proper LVGL includes)
+## 5. Edit UI Files (If EEZ doesn't generate the proper LVGL includes)
 
 EEZ-Studio has an option to change the library include. I have noticed that sometimes it still spits out `lvgl/lvgl.h` despite being set to `lvgl.h`
 
@@ -103,7 +103,7 @@ python import_eez_ui.py -m fix-headers
 ```
 
 
-### 📊 Alternative Method: import_eez_ui.py {#alt-method}
+### 📊 Alternative Method: import_eez_ui.py<a name="alt-method"></a>    <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 This script simplifies the process of importing and integrating UI components into your project. It automates several tasks, making your development workflow more efficient. I have never used python before this, but figured it was more portable than bash and you have to have python installed for the IDF anyways. There may be bugs as I am the only person who has tested these scripts. With that said if you do encounter a bug submit an issue or even better a pull request.
 
@@ -119,10 +119,18 @@ This script simplifies the process of importing and integrating UI components in
 
 **Usage**
 
-To run the script, execute the following command in your terminal:
+You must configure the script first, unless you are using the projects default folders. 
 
 ```bash
-python import_eez_ui.py [options]
+# Run config to customize variables
+python import_eez_ui.py -m config
+```
+
+Then to run the script, execute the following command in your terminal:
+
+```bash
+# Run script with no options to run based on config
+python import_eez_ui.py
 ```
 
 **Specifying Source Directory**
@@ -135,6 +143,16 @@ python import_eez_ui.py -d </path/to/your/ui/components>
 ```
 If not provided, the script will attempt to use the last specified directory from a configuration file.
 
+**Specifying Backup Directory**
+
+Use the `-b` or `--backup` option to specify the default path to where you want your backup directory.
+
+Example:
+```bash
+python import_eez_ui.py -b </path/to/your/ui/backup>
+```
+If not provided, the script will attempt to use the last specified directory from a configuration file.
+
 **Selecting Import Mode**
 
 Use the `-m` or `--mode` option to specify the specific actions you want to perform.
@@ -142,11 +160,15 @@ Use the `-m` or `--mode` option to specify the specific actions you want to perf
 Available modes:
 
 
+- `backup-ui`: Only copy UI files from ./components/ui to backup folder.
+- `restore-ui`: Only copy UI files from backup folder to ./components/ui.
+- `delete-backup`: Only delete backup files.
 - `copy-ui`: Only copy UI files.
 - `fix-headers`: Only replace headers.
-- `fix-cmake`: Only check and optionally replace CMakeLists.txt.
+- `fix-cmake`: Only check and replace CMakeLists.txt.
 - `fix-actions`: Only copy and create stubs for action functions.
-- `all (default)`: Perform all actions.
+- `fix-flow`: Only copy an eez-flow.h into project to allow compilation without using EEZ-Flow
+- `all (default)`: Perform all actions. (Does not run restore-ui or delete-backup)
 
 **Viewing Help**
 
@@ -169,7 +191,7 @@ python import_eez_ui.py
 **Note:**
 The script assumes a specific project structure and file organization. It is expected that you are pointing to an EEZ projects ./src/ui folder. You may need to adapt the script for projects with different structures. This documentation provides a concise overview of the ui_import.py script. For detailed information and troubleshooting, refer to the script's source code.
 
-## 🛣️ Roadmap
+### 🛣️ Roadmap<a id="roadmap"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 These are my up coming project goals:
 
@@ -178,10 +200,10 @@ These are my up coming project goals:
 - __Easy Config Peripherals__ - I would like to set up a quick easy way to enable and init the peripherals as you need them with a quick define or simple config file
 - __More To Come__ - I am always thinking of ways to make this better and am open to contributions!
 
-## 🤔 Frequently Asked Questions (FAQ) {#faq}
+### 🤔 Frequently Asked Questions<a id="faq"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 ### LVGL Header Issue
-**Problem**: `fatal error: lvgl/lvgl.h: No such file or directory`
+**Problem**: `fatal error: lvgl/lvgl.h: No such file or directory` 
 
 **Solution**: 
 - Manually replace `lvgl/lvgl.h` with `lvgl.h` in all files under `./components/ui/`
@@ -204,23 +226,24 @@ These are my up coming project goals:
 - Use the template at `./templates/CMakeLists.txt`
 - __*New*__ Run `python import_eez_ui.py -m fix-cmake` to allow the script to fix the cmake file in `./components/ui/`.
 
-## 🌐 Additional Resources
+
+### 🌐 Additional Resources<a name="additional-resources"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 - 📖 [Waveshare ESP32-S3 7 Inch Wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)
 - 📚 [LVGL Documentation](https://docs.lvgl.io/)
 - 🛠 [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/)
 - 🏗️ [EEZ-Studio](https://github.com/eez-open/studio)
 
-## 📜️ Licensing {#licensing-me}
+### 📜️ Licensing <a name="licensing"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
-The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from wavesource is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources i believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
+The [source code](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Demo.zip)(Direct Download) from Waveshare is licensed under GPL. The code we are importing from EEZ-Studio is GPL3. As most of this project is based on code provided from these two sources I believe this project needs to be GPL3 in order to be compliant, and I have included the required LICENSE file.
 
 However, `import_eez_ui.py` was not based on previous projects. As such, I would like to release this script under MIT licenscing. I honestly dont know the proper way to set that up in the project so some pointers would be great!
 
 If you notice any licensce problems, open an issue. It will be addressed ASAP.
 
 
-## 🤝 Contributing
+### 🤝 Contributing<a name="contributing"></a>  <div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>
 
 Contributions are welcome!
 
@@ -234,4 +257,4 @@ Contributions are welcome!
 ---
 
 *Happy Coding! 👨‍💻👩‍💻*
-
+<div style="text-align: right;"><sub>[Back to Top](#top)</sub></div>

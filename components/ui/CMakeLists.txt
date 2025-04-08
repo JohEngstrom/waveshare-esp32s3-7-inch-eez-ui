@@ -2,7 +2,7 @@
 # In case you accidently deleted this from ./components/ui/CMakeLists.txt
 
 idf_component_register(
-    SRCS "ui.c"  # We'll replace this with dynamic source gathering
+    SRCS "actions.c" "ui.c"  # We'll replace this with dynamic source gathering
     INCLUDE_DIRS "."
     REQUIRES 
         "lvgl"  # Add any required dependencies

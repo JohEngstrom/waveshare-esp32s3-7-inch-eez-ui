@@ -1,6 +1,7 @@
 #include "actions.h"
 
 // Go to actions.h and copy all of the extern functions here
+// (can be automatically performed by import_eez_ui.py)
 
 // Example copy from actions.h:
 
@@ -21,4 +22,8 @@
 //     void action_delete_notification(lv_event_t * e) {
 
 //     }
+
+
+
+
 

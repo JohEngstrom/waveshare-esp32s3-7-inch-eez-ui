@@ -1,0 +1,1 @@
+This is the default backup location when using the import_eez_ui.py script included in this directory.
