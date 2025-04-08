@@ -286,7 +286,7 @@ def copy_ui(source_dir):
 def fix_flow():
     """
     Copies the eez-flow.h template from the backup directory to the destination directory if it doesn't already exist.
-    This is necessary to ensure that the project compiles.
+    This is necessary to ensure that the project compiles if you don't use eez-flow.
     """
     # Check if the file already exists in the destination directory
     if not os.path.exists(os.path.join(DEFAULT_PROJECT_DIR, "eez-flow.h")):
@@ -359,7 +359,7 @@ def fix_actions():
         with open(actions_h, "r") as f:
             content = f.read()
             # Find all extern functions in actions.h
-            extern_functions = re.findall(r"extern\s+void\s+(\w+)\s*\(.*?\);", content)
+            extern_functions = re.findall(r"extern\s+void\s+(\w+)\s*\((.*?)\)\s*;", content)
         
         # Check if actions.c exists
         if os.path.exists(actions_c):
@@ -367,7 +367,7 @@ def fix_actions():
             with open(actions_c, "r") as f:
                 content = f.read()
                 # Find all existing functions in actions.c
-                existing_functions = re.findall(r"void\s+(\w+)\s*\(.*?\)", content)
+                existing_functions = re.findall(r"void\s+(\w+)\s*\((.*?)\)\s*\{", content)
         else: 
             print(f"\n{actions_c} not found. Creating new actions.c")
             # If actions.c does not exist, copy the template from the backup directory
