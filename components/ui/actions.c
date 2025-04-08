@@ -1,5 +1,8 @@
 #include "actions.h"
 
+// NEW: You can use import_eez_ui.py to import the functions
+
+// Manual copy:
 // Go to actions.h and copy all of the extern functions here
 
 // Example copy from actions.h:
@@ -22,7 +25,3 @@
 
 //     }
 
-
-void action_run_obd_scan(lv_event_t * e) {
-	// TODO: implement action_run_obd_scan
-}
