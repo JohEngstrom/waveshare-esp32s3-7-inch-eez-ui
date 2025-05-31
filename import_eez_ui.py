@@ -263,8 +263,14 @@ def copy_ui(source_dir):
     Args:
         source_dir: Path to the UI source directory.
     """
-    print(f"\nCopying UI files from '{source_dir}' to 'components/ui'.")
-    dest_dir = "components/ui"
+    
+    # Use the config file to get the project_dir
+    # If the config file does not exist, use the default project directory
+    import configparser
+    config = configparser.ConfigParser()
+    config.read('.ui_import_config')
+    dest_dir = config.get('ImportSettings', 'project_dir', fallback=DEFAULT_PROJECT_DIR)
+    print(f"\nCopying UI files from '{source_dir}' to '{dest_dir}'.")
     
     # Ensure the destination directory exists
     if not os.path.exists(dest_dir):
@@ -295,35 +301,59 @@ def fix_flow():
         shutil.copy2(os.path.join("backup/templates/eez-flow.h"), os.path.join(DEFAULT_PROJECT_DIR, "eez-flow.h"))
         
         
+import configparser
+import os
+
 def fix_headers():
     """
     Replaces "lvgl/lvgl.h" with "lvgl.h" in all UI files.
-
-    This is necessary because the UI files from the template project
-    include the header file with "lvgl/lvgl.h", which is not valid if
-    the lvgl component is used in a project.
     """
+    # Load destination directory from config
+    config = configparser.ConfigParser()
+    config.read('.ui_import_config')
+    dest_dir = config.get('ImportSettings', 'project_dir', fallback='components/ui')
     count = 0
-    print("\nReplacing occurrences of 'lvgl/lvgl.h' with 'lvgl.h' in all UI files.")
-    # Replace "lvgl/lvgl.h" with "lvgl.h"
-    for root, dirs, files in os.walk("components/ui"):
-        # Only process .h, .c, .cpp, and .hpp files
+    print(f"\nReplacing occurrences of 'lvgl/lvgl.h' with 'lvgl.h' in all UI files under '{dest_dir}'.")
+    for root, dirs, files in os.walk(dest_dir):
         for file in files:
-            if file.endswith(".h") or file.endswith(".c") or file.endswith(".cpp") or file.endswith(".hpp"):
+            if file.endswith((".h", ".c", ".cpp", ".hpp")):
                 file_path = os.path.join(root, file)
-                # Read file
                 with open(file_path, "r", encoding="utf-8") as f:
                     content = f.read()
-                # Replaces all occurrences
                 updated_content = content.replace("lvgl/lvgl.h", "lvgl.h")
-                # Check if changes were made
                 if content != updated_content:
-                    # Write updated content
                     with open(file_path, "w", encoding="utf-8") as f:
                         f.write(updated_content)
                     print(f"Updated '{file_path}'")
                     count += 1
     print(f"Total files updated: {count}")
+    
+def fix_screens():
+    """
+    Replaces all occurrences of 'lv_obj_create(0)' with 'lv_obj_create(NULL)' in screens.c.
+    """
+    # Load destination directory from config
+    config = configparser.ConfigParser()
+    config.read('.ui_import_config')
+    dest_dir = config.get('ImportSettings', 'project_dir', fallback='components/ui')
+
+    file_path = os.path.join(dest_dir, "screens.c")
+    if not os.path.isfile(file_path):
+        print(f"'screens.c' not found in '{dest_dir}'.")
+        return
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Replace occurrences and count them
+    updated_content, count = re.subn(r'\blv_obj_create\s*\(\s*0\s*\)', 'lv_obj_create(NULL)', content)
+
+    if count > 0:
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(updated_content)
+        print(f"Updated {count} occurrence(s) in '{file_path}'.")
+    else:
+        print("No occurrences found to update.")
 
 def fix_cmake():
     """
@@ -399,7 +429,7 @@ def main():
     parser = argparse.ArgumentParser(description='Running EEZ UI Importer')
     parser.add_argument('-d', '--directory',nargs='?', const='', help='Source directory for UI files')
     parser.add_argument('-b', '--backup-directory',nargs='?', const='', help='Backup directory for UI files')
-    parser.add_argument('-m', '--mode', choices=['config', 'backup-ui', 'restore-ui', 'delete-backup', 'copy-ui', 'fix-headers', 'fix-cmake', 'fix-actions', 'all'], default=None) 
+    parser.add_argument('-m', '--mode', choices=['config', 'backup-ui', 'restore-ui', 'delete-backup', 'copy-ui', 'fix-headers', 'fix-cmake', 'fix-actions', 'fix-screens', 'all'], default=None) 
     help_parser = argparse.ArgumentParser(description='Import EEZ UI', formatter_class=argparse.RawDescriptionHelpFormatter, epilog='''
                                      
   -d, --directory         -Set the source directory for UI files exported from EEZ-Studio. Must be in folder called ui
@@ -429,6 +459,7 @@ def main():
                         you to implement
         fix-flow       -Fix for eez-flow - if ui.h from EEZ-Studio still links to eez-flow.c even if not used 
                         this will add in the correct eez-flow.h
+        fix-screens    -Fix screens - changes lv_obj_create(0) to lv_obj_create(NULL) in all screens
         all            -Run all modes(Except delete-backup) with settings from config file
                         ''')
     args = parser.parse_args()
@@ -485,6 +516,7 @@ def main():
             fix_cmake()
             fix_actions()
             fix_flow()
+            fix_screens()
             print("\nAll operations completed successfully.\nFull Clean and Build the project to verify.\n")
             sys.exit(0)
         # If user_selected_mode is to any other value, run each mode that is specified.
@@ -511,6 +543,8 @@ def main():
                     fix_actions()
                 elif mode == 'fix-flow':
                     fix_flow()
+                elif mode == 'fix-screens':
+                    fix_screens()
             print("\nSelected operations completed successfully.\nFull Clean and Build the project to verify.\n")
         sys.exit(0)
     # Run only the selected mode when -m is passed
@@ -532,6 +566,8 @@ def main():
             fix_actions()
         elif args.mode == 'fix-flow':
             fix_flow()
+        elif args.mode == 'fix-screens':
+            fix_screens()
         elif args.mode == 'all':
             backup_ui(source_dir, backup_dir)
             copy_ui(source_dir)
